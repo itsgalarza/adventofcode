@@ -1,1 +1,2 @@
 import pytest
+from fixtures.spark_session import spark_session
