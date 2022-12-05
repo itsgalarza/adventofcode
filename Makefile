@@ -19,7 +19,7 @@ lint:
 	python -m flake8 src/ tests/
 
 coverage:
-	python -m coverage run --source=src --branch -m pytest -sv tests --junitxml=build/test.xml -v
+	python -m coverage run --source=src --branch -m pytest -sv tests/ --junitxml=build/test.xml -v
 	python -m coverage xml -i -o build/coverage.xml
 	python -m coverage report --omit=*/main.py
 
