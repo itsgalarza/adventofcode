@@ -1,4 +1,11 @@
 import re
+from typing import Tuple
+
+def read_input(input:str) -> Tuple[str, str]:
+    with open(input, encoding='utf-8', mode='r') as f:
+        stack_config, instructions = f.read().split("\n\n")
+    return stack_config, instructions
+
 
 def read_stack_config(stack_config: str) -> list: 
     stack_conf_by_line = stack_config.split("\n")
@@ -47,9 +54,7 @@ def cratemover_9001(instructions: str, stacks):
     return stacks
 
 
-def p1(input:str):
-    with open(input, encoding='utf-8', mode='r') as f:
-        stack_config, instructions = f.read().split("\n\n")
+def p1(stack_config: str, instructions: str):
     
     stacks = read_stack_config(stack_config)
     result = operations(instructions, stacks)
@@ -57,10 +62,8 @@ def p1(input:str):
     return ans
 
 
-def p2(input:str):
-    with open(input, encoding='utf-8', mode='r') as f:
-        stack_config, instructions = f.read().split("\n\n")
-    
+def p2(stack_config: str, instructions: str):
+ 
     stacks = read_stack_config(stack_config)
     result = cratemover_9001(instructions, stacks)
     ans = get_final_state(result)
