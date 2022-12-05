@@ -1,12 +1,13 @@
-from pyspark.sql import SparkSession
-from src.y22.d02 import p1, p2
+from src.y22.d02 import solver
 
-SAMPLE_DATA = 'tests/y22/d02/samples/input.csv'
+SAMPLE_DATA = 'tests/y22/d02/samples/input.txt'
 
-def test_run_p1(spark_session: SparkSession):
-    res = p1.solver(spark_session, SAMPLE_DATA)
+def test_run_p1():
+    input = solver.read_input(SAMPLE_DATA)
+    res = solver.p1(input)
     assert res == 15
 
-def test_run_p2(spark_session: SparkSession): 
-    res = p2.solver(spark_session, SAMPLE_DATA)
+def test_run_p2(): 
+    input = solver.read_input(SAMPLE_DATA)
+    res = solver.p2(input)
     assert res == 12
